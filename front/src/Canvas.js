@@ -77,7 +77,6 @@ const Canvas = () => {
     const setColor = (e) => {
         // console.log(e.target.value);
         ctx.strokeStyle = e.target.value;
-        ctx.stroke();
     }
 
     /*
@@ -96,12 +95,15 @@ const Canvas = () => {
      */
     useEffect(() => {
         canvas = canvasRef.current;
-        canvas.width = 700;
-        canvas.heigth = 1000;
+        canvas.width = 500;
+        canvas.heigth = 500;
 
         ctx = canvas.getContext('2d');
         //테투리라인 및 채우기색 추가 필요
-        // ctx.fillStyle = 'blue';
+        // ctx.fillStyle = 'yellow';
+        ctx.strokeStyle = 'blue';
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(0, 0, 500, 500);
 
         canvas.addEventListener('mousedown', initDraw);
         canvas.addEventListener('mousemove', toDraw);
@@ -112,8 +114,9 @@ const Canvas = () => {
     return (
         <div>
             <button onClick={ setClear }>지우기</button>
+            <button onClick={(e) => { setColor(e) }} value="black">검정</button>
             <button onClick={(e) => { setColor(e) }} value="blue">파랑</button>
-            <canvas ref={canvasRef}></canvas>
+            <canvas ref={canvasRef} width="500" height="500"></canvas>
         </div>
     );
 };

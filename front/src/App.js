@@ -4,7 +4,7 @@ import Canvas from './Canvas';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Canvas></Canvas>
     </div>
   );
